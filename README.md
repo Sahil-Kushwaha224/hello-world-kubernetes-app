@@ -48,9 +48,9 @@ This is a simple "Hello, World!" web application built with Node.js, Dockerized,
      or
 
      Using curl: You can also use curl to check:
-     bash
+     ```bash
      curl http://<minikube-ip>:30000
-
+     ```
 4. **Scale the Application**
    - Scale the number of replicas:
      ```bash
