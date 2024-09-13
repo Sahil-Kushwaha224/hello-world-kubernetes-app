@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-code-service
+spec:
+  type: NodePort   # Change from LoadBalancer to NodePort
+  selector:
+    app: hello-world-code
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+      nodePort: 30000   # Example node port (can be any port in the range 30000-32767)

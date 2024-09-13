@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-code-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-code
+  template:
+    metadata:
+      labels:
+        app: hello-world-code
+    spec:
+      containers:
+      - name: hello-world-code
+        image: sahil224/hello-world-code
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
